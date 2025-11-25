@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetGrout Documentation 📚</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>📚 JetGrout Docs</h1>
+            <p>Complete Documentation</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Installation & Setup</h3>
+                <a href="#installation" class="nav-link active">Installation Guide</a>
+                <a href="#database-setup" class="nav-link">Database Setup</a>
+                <a href="#server-start" class="nav-link">Starting the Server</a>
+                <a href="#accessing-app" class="nav-link">Accessing the Application</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>Getting Started</h3>
+                <a href="#introduction" class="nav-link">Introduction</a>
+                <a href="#login" class="nav-link">Login Process</a>
+                <a href="#overview" class="nav-link">System Overview</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>User Roles</h3>
+                <a href="#admin" class="nav-link">Admin</a>
+                <a href="#supervisor" class="nav-link">Supervisor</a>
+                <a href="#driller" class="nav-link">Driller</a>
+                <a href="#grouter" class="nav-link">Grouter</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>Admin Guide</h3>
+                <a href="#create-project" class="nav-link">Creating Projects</a>
+                <a href="#manage-users" class="nav-link">Managing Users</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>Supervisor Guide</h3>
+                <a href="#daily-report" class="nav-link">Daily Reports</a>
+                <a href="#equipment" class="nav-link">Equipment Tracking</a>
+                <a href="#materials" class="nav-link">Material Management</a>
+                <a href="#manpower" class="nav-link">Manpower Logging</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>Driller Guide</h3>
+                <a href="#drilling-logs" class="nav-link">Drilling Logs</a>
+                <a href="#soil-photos" class="nav-link">Soil Photography</a>
+                <a href="#saa-tests" class="nav-link">SAA Test Results</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>Grouter Guide</h3>
+                <a href="#production" class="nav-link">Production Reports</a>
+                <a href="#grouting-data" class="nav-link">Grouting Data</a>
+                <a href="#pressure-photos" class="nav-link">Pressure Gauge Photos</a>
+            </div>
+
+            <div class="nav-section">
+                <h3>Support</h3>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+                <a href="#contact" class="nav-link">Contact Support</a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Installation Guide -->
+        <section id="installation" class="doc-section">
+            <h1>Installation Guide 🚀</h1>
+            <p class="lead">This guide will walk you through the complete installation process of the JetGrout
+                application, from extracting the project files to accessing the application in your browser.</p>
+
+            <div class="info-box">
+                <h3>Prerequisites</h3>
+                <p>Before you begin, ensure you have the following installed on your system:</p>
+                <ul>
+                    <li><strong>XAMPP</strong> (includes Apache, MySQL/MariaDB, and PHP)</li>
+                    <li><strong>Web Browser</strong> (Chrome, Firefox, Safari, or Edge)</li>
+                    <li><strong>Text Editor</strong> (optional, for configuration)</li>
+                </ul>
+            </div>
+
+            <h2>Step 1: Extract the Project Files</h2>
+            <ol class="step-list">
+                <li>Locate the downloaded <strong>jetgrout-app.zip</strong> file on your computer</li>
+                <li>Right-click on the ZIP file and select <strong>"Extract All..."</strong> or use your preferred
+                    extraction tool</li>
+                <li>Navigate to your XAMPP installation directory:
+                    <ul class="sub-steps">
+                        <li><strong>Windows:</strong> <code>C:\xampp\htdocs\</code></li>
+                        <li><strong>Linux:</strong> <code>/opt/lampp/htdocs/</code></li>
+                        <li><strong>Mac:</strong> <code>/Applications/XAMPP/htdocs/</code></li>
+                    </ul>
+                </li>
+                <li>Extract or copy the <strong>jetgrout-app</strong> folder into the <code>htdocs</code> directory</li>
+                <li>Verify that the folder structure looks like this:
+                    <pre><code>htdocs/
+└── jetgrout-app/
+    ├── app/
+    ├── bootstrap/
+    ├── config/
+    ├── database/
+    ├── public/
+    ├── resources/
+    ├── routes/
+    └── .env</code></pre>
+                </li>
+            </ol>
+
+            <div class="success-box">
+                <h3>✓ Verification</h3>
+                <p>After extraction, you should see the <code>jetgrout-app</code> folder containing all the Laravel
+                    application files including <code>app</code>, <code>public</code>, <code>resources</code>, and other
+                    directories.</p>
+            </div>
+        </section>
+
+        <!-- Database Setup -->
+        <section id="database-setup" class="doc-section">
+            <h1>Database Setup 🗄️</h1>
+            <p>The JetGrout application requires a MySQL database to store all project data, user information, and daily
+                reports.</p>
+
+            <h2>Step 1: Start MySQL Service</h2>
+            <ol class="step-list">
+                <li>Open the <strong>XAMPP Control Panel</strong></li>
+                <li>Click the <strong>"Start"</strong> button next to <strong>Apache</strong></li>
+                <li>Click the <strong>"Start"</strong> button next to <strong>MySQL</strong></li>
+                <li>Wait for both services to show <span style="color: green; font-weight: bold;">green "Running"</span>
+                    status</li>
+            </ol>
+
+            <div class="warning-box">
+                <h3>⚠️ Port Conflicts</h3>
+                <p>If Apache or MySQL fails to start, it may be due to port conflicts. Common solutions:</p>
+                <ul>
+                    <li>Close Skype or other applications using port 80 or 443</li>
+                    <li>Stop other MySQL/MariaDB services running on your system</li>
+                    <li>Configure XAMPP to use different ports in the Config menu</li>
+                </ul>
+            </div>
+
+            <h2>Step 2: Access phpMyAdmin</h2>
+            <ol class="step-list">
+                <li>Open your web browser</li>
+                <li>Navigate to <strong><code>http://localhost/phpmyadmin</code></strong></li>
+                <li>You should see the phpMyAdmin interface</li>
+            </ol>
+
+            <h2>Step 3: Create the Database</h2>
+            <ol class="step-list">
+                <li>In phpMyAdmin, click on the <strong>"Databases"</strong> tab at the top</li>
+                <li>In the "Create database" section, enter the database name: <strong><code>jetgrout_db</code></strong>
+                </li>
+                <li>Select <strong>"utf8mb4_unicode_ci"</strong> as the collation</li>
+                <li>Click the <strong>"Create"</strong> button</li>
+            </ol>
+
+            <h2>Step 4: Import the Database Structure</h2>
+            <p>There are two methods to set up your database tables:</p>
+
+            <h3>Method 1: Import SQL File (Recommended)</h3>
+            <ol class="step-list">
+                <li>In phpMyAdmin, click on the <strong>"jetgrout_db"</strong> database you just created</li>
+                <li>Click on the <strong>"Import"</strong> tab</li>
+                <li>Click <strong>"Choose File"</strong> and navigate to:
+                    <code>jetgrout-app/database/jetgrout_db.sql</code>
+                </li>
+                <li>Click <strong>"Go"</strong> at the bottom of the page</li>
+                <li>Wait for the import to complete - you should see a success message</li>
+            </ol>
+
+            <h3>Method 2: Run Laravel Migrations</h3>
+            <ol class="step-list">
+                <li>Open Terminal (Linux/Mac) or Command Prompt (Windows)</li>
+                <li>Navigate to the project directory:
+                    <pre><code>cd /opt/lampp/htdocs/jetgrout-app</code></pre>
+                </li>
+                <li>Run the migration command:
+                    <pre><code>php artisan migrate</code></pre>
+                </li>
+                <li>Wait for all migrations to complete</li>
+            </ol>
+
+            <div class="success-box">
+                <h3>✓ Verification</h3>
+                <p>After importing, you should see multiple tables in the <code>jetgrout_db</code> database including:
+                </p>
+                <ul>
+                    <li><code>users</code> - User accounts</li>
+                    <li><code>projects</code> - Project information</li>
+                    <li><code>daily_reports</code> - Daily site reports</li>
+                    <li><code>drilling_logs</code> - Drilling data</li>
+                    <li><code>grouting_logs</code> - Grouting data</li>
+                    <li>And more...</li>
+                </ul>
+            </div>
+
+            <h2>Step 5: Configure Database Connection</h2>
+            <ol class="step-list">
+                <li>Navigate to the project folder: <code>jetgrout-app</code></li>
+                <li>Find and open the <strong><code>.env</code></strong> file with a text editor</li>
+                <li>Locate the database configuration section and update it:
+                    <pre><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=jetgrout_db
+DB_USERNAME=root
+DB_PASSWORD=</code></pre>
+                </li>
+                <li>Save the file</li>
+            </ol>
+
+            <div class="info-box">
+                <h3>Database Configuration Explained</h3>
+                <ul>
+                    <li><strong>DB_CONNECTION:</strong> Database type (mysql)</li>
+                    <li><strong>DB_HOST:</strong> Database server address (127.0.0.1 for local)</li>
+                    <li><strong>DB_PORT:</strong> MySQL port (default: 3306)</li>
+                    <li><strong>DB_DATABASE:</strong> Database name (jetgrout_db)</li>
+                    <li><strong>DB_USERNAME:</strong> Database username (default: root)</li>
+                    <li><strong>DB_PASSWORD:</strong> Database password (leave empty for XAMPP default)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Starting the Server -->
+        <section id="server-start" class="doc-section">
+            <h1>Starting the Server ⚡</h1>
+            <p>Once the files are extracted and the database is set up, you need to ensure the web server is running.
+            </p>
+
+            <h2>Using XAMPP Control Panel</h2>
+            <ol class="step-list">
+                <li>Open the <strong>XAMPP Control Panel</strong></li>
+                <li>Ensure <strong>Apache</strong> is running (green status)</li>
+                <li>Ensure <strong>MySQL</strong> is running (green status)</li>
+                <li>If not running, click the <strong>"Start"</strong> buttons</li>
+            </ol>
+
+            <div class="info-box">
+                <h3>Service Status Indicators</h3>
+                <ul>
+                    <li><span style="color: green; font-weight: bold;">●</span> <strong>Green:</strong> Service is
+                        running correctly</li>
+                    <li><span style="color: red; font-weight: bold;">●</span> <strong>Red:</strong> Service is stopped
+                    </li>
+                    <li><span style="color: orange; font-weight: bold;">●</span> <strong>Orange:</strong> Service is
+                        starting/stopping</li>
+                </ul>
+            </div>
+
+            <h2>Alternative: Using Command Line</h2>
+
+            <h3>On Linux:</h3>
+            <pre><code># Start XAMPP
+sudo /opt/lampp/lampp start
+
+# Check status
+sudo /opt/lampp/lampp status
+
+# Stop XAMPP (when needed)
+sudo /opt/lampp/lampp stop</code></pre>
+
+            <h3>On Windows:</h3>
+            <pre><code>REM Start services from XAMPP installation directory
+cd C:\xampp
+xampp-control.exe</code></pre>
+
+            <h3>On Mac:</h3>
+            <pre><code># Start XAMPP
+sudo /Applications/XAMPP/xamppfiles/xampp start
+
+# Check status
+sudo /Applications/XAMPP/xamppfiles/xampp status</code></pre>
+
+            <div class="warning-box">
+                <h3>⚠️ Important Notes</h3>
+                <ul>
+                    <li>Both Apache and MySQL must be running for the application to work</li>
+                    <li>If you restart your computer, you'll need to start these services again</li>
+                    <li>You can configure XAMPP to start services automatically on system boot</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Accessing the Application -->
+        <section id="accessing-app" class="doc-section">
+            <h1>Accessing the Application 🌐</h1>
+            <p>With the server running and database configured, you're ready to access the JetGrout application.</p>
+
+            <h2>Step 1: Open Your Web Browser</h2>
+            <p>Launch your preferred web browser (Chrome, Firefox, Safari, or Edge)</p>
+
+            <h2>Step 2: Navigate to the Application</h2>
+            <p>In the address bar, enter one of the following URLs:</p>
+
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>URL</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>http://localhost/jetgrout-app/public</code></td>
+                            <td>Standard local access</td>
+                        </tr>
+                        <tr>
+                            <td><code>http://127.0.0.1/jetgrout-app/public</code></td>
+                            <td>Alternative local access</td>
+                        </tr>
+                        <tr>
+                            <td><code>http://[your-ip-address]/jetgrout-app/public</code></td>
+                            <td>Access from other devices on same network</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Step 3: Verify Installation</h2>
+            <p>If everything is set up correctly, you should see:</p>
+            <ul class="feature-list">
+                <li>The JetGrout login page with email and password fields</li>
+                <li>No error messages or warnings</li>
+                <li>A clean, professional interface</li>
+            </ul>
+
+            <h2>Default Admin Credentials</h2>
+            <p>Use these credentials to log in for the first time:</p>
+
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                            <td><code>admin@jetgrout.com</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Password</strong></td>
+                            <td><code>password</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Security Important!</h3>
+                <p>After your first login, immediately:</p>
+                <ul>
+                    <li>Change the default admin password</li>
+                    <li>Create new user accounts with strong passwords</li>
+                    <li>Delete or disable the default admin account if not needed</li>
+                </ul>
+            </div>
+
+            <h2>Accessing from Mobile Devices</h2>
+            <p>To access the application from phones or tablets on the same network:</p>
+
+            <ol class="step-list">
+                <li>Find your computer's IP address:
+                    <ul class="sub-steps">
+                        <li><strong>Windows:</strong> Open Command Prompt and type <code>ipconfig</code></li>
+                        <li><strong>Linux:</strong> Open Terminal and type <code>ip addr</code> or <code>ifconfig</code>
+                        </li>
+                        <li><strong>Mac:</strong> System Preferences → Network</li>
+                    </ul>
+                </li>
+                <li>Look for the IPv4 address (e.g., <code>192.168.1.100</code>)</li>
+                <li>On your mobile device, open the browser and navigate to:
+                    <pre><code>http://[your-ip-address]/jetgrout-app/public</code></pre>
+                    Example: <code>http://192.168.1.100/jetgrout-app/public</code>
+                </li>
+            </ol>
+
+            <div class="info-box">
+                <h3>Network Requirements</h3>
+                <ul>
+                    <li>Both devices must be on the same WiFi network</li>
+                    <li>Firewall may need to allow incoming connections on port 80</li>
+                    <li>Some routers may block local network access - check router settings</li>
+                </ul>
+            </div>
+
+            <h2>Troubleshooting Access Issues</h2>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: "This site can't be reached" or "Unable to connect"</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify Apache is running in XAMPP Control Panel</li>
+                    <li>Check that you're using the correct URL</li>
+                    <li>Try <code>http://localhost/jetgrout-app/public</code> instead of <code>https://</code></li>
+                    <li>Clear your browser cache and cookies</li>
+                    <li>Try a different web browser</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: "Database connection error"</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify MySQL is running in XAMPP Control Panel</li>
+                    <li>Check <code>.env</code> file database configuration</li>
+                    <li>Ensure database <code>jetgrout_db</code> exists in phpMyAdmin</li>
+                    <li>Verify database credentials (username/password)</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: "404 Not Found" error</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Ensure the folder is named exactly <code>jetgrout-app</code></li>
+                    <li>Verify the folder is in the correct location (<code>htdocs</code>)</li>
+                    <li>Check that <code>/public</code> is included in the URL</li>
+                    <li>Ensure all files were extracted properly</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>✓ Installation Complete!</h3>
+                <p>Congratulations! Your JetGrout application is now installed and running. You can proceed to the <a
+                        href="#login">Login Process</a> section to learn how to access the system.</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction" class="doc-section">
+            <h1>JetGrout Documentation 📚</h1>
+            <p class="lead">Welcome to the JetGrout application documentation. This comprehensive guide will help you
+                understand and use the system effectively.</p>
+
+            <div class="info-box">
+                <h3>What is JetGrout?</h3>
+                <p>JetGrout is a digital construction management system designed specifically for jet grouting
+                    operations. It replaces traditional paper-based logging with a modern, cloud-based solution that
+                    enables real-time data collection, photo documentation, and automated reporting.</p>
+            </div>
+
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li><strong>Real-time Data Entry:</strong> Field workers can enter data directly from the construction
+                    site</li>
+                <li><strong>Photo Documentation:</strong> Capture and attach photos of soil samples and pressure gauges
+                </li>
+                <li><strong>Role-based Access:</strong> Different permissions for Admin, Supervisor, Driller, and
+                    Grouter roles</li>
+                <li><strong>Automated Reports:</strong> Generate comprehensive daily reports automatically</li>
+                <li><strong>Mobile Friendly:</strong> Works on smartphones, tablets, and desktop computers</li>
+                <li><strong>Cloud Storage:</strong> All data safely stored and accessible from anywhere</li>
+            </ul>
+        </section>
+
+        <!-- Login Process -->
+        <section id="login" class="doc-section">
+            <h1>Login Process</h1>
+            <p>To begin using JetGrout, you need to log in with your provided credentials.</p>
+
+            <h2>Steps to Login</h2>
+            <ol class="step-list">
+                <li>Open your web browser (Chrome, Firefox, Safari, or Edge)</li>
+                <li>Navigate to the JetGrout application URL provided by your administrator</li>
+                <li>Enter your <strong>Email Address</strong> in the email field</li>
+                <li>Enter your <strong>Password</strong> in the password field</li>
+                <li>Click the <strong>"Login"</strong> button</li>
+            </ol>
+
+            <p>Upon successful login, you will be automatically redirected to your role-specific dashboard where you can
+                begin managing your construction data.</p>
+
+            <div class="warning-box">
+                <h3>⚠️ Important Security Notes</h3>
+                <ul>
+                    <li>Keep your password confidential - do not share it with others</li>
+                    <li>Change your password after first login if it was provided by admin</li>
+                    <li>Always logout when finished, especially on shared computers</li>
+                    <li>Contact your admin if you forget your password</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- System Overview -->
+        <section id="overview" class="doc-section">
+            <h1>System Overview</h1>
+            <p>JetGrout follows a hierarchical workflow where data flows from management to field workers.</p>
+
+            <h2>Data Flow</h2>
+            <div class="workflow-diagram">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h3>Admin Setup</h3>
+                    <p>Creates projects and user accounts</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h3>Supervisor Initiates</h3>
+                    <p>Creates daily report for the day</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h3>Field Workers Log</h3>
+                    <p>Drillers and Grouters enter data</p>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <h3>Review & Report</h3>
+                    <p>Supervisor reviews and generates reports</p>
+                </div>
+            </div>
+
+            <h2>Critical Dependency</h2>
+            <div class="info-box">
+                <p><strong>Important:</strong> A Supervisor must create a Daily Report before Drillers and Grouters can
+                    enter data. Without a daily report, field workers will see a message asking them to wait for the
+                    supervisor.</p>
+            </div>
+        </section>
+
+        <!-- Admin Role -->
+        <section id="admin" class="doc-section">
+            <h1>Admin Role</h1>
+            <p class="role-description">Project Manager / Office Manager</p>
+
+            <h2>Who is an Admin?</h2>
+            <p>Admins are typically project managers, office administrators, or company owners who oversee the entire
+                system.</p>
+
+            <h2>Responsibilities</h2>
+            <ul class="responsibility-list">
+                <li>✓ Create and manage projects</li>
+                <li>✓ Create and manage user accounts</li>
+                <li>✓ Assign roles to team members</li>
+                <li>✓ View all reports from all projects</li>
+                <li>✓ Manage system settings and configurations</li>
+                <li>✓ Monitor overall project progress</li>
+            </ul>
+
+            <h2>What Admin Replaces</h2>
+            <p>The Admin role replaces traditional master project files, employee records, and manual access control
+                systems.</p>
+        </section>
+
+        <!-- Supervisor Role -->
+        <section id="supervisor" class="doc-section">
+            <h1>Supervisor Role</h1>
+            <p class="role-description">Site Supervisor / Foreman</p>
+
+            <h2>Who is a Supervisor?</h2>
+            <p>Supervisors are site supervisors, foremen, or site engineers who manage daily operations at the
+                construction site.</p>
+
+            <h2>Responsibilities</h2>
+            <ul class="responsibility-list">
+                <li>✓ Create daily site reports</li>
+                <li>✓ Record weather conditions</li>
+                <li>✓ Track equipment usage</li>
+                <li>✓ Record material consumption</li>
+                <li>✓ Log manpower (workers present)</li>
+                <li>✓ View drilling and grouting data</li>
+                <li>✓ Review and verify daily operations</li>
+            </ul>
+
+            <h2>What Supervisor Replaces</h2>
+            <p>The Supervisor role replaces daily site diaries, equipment logbooks, and material registers.</p>
+        </section>
+
+        <!-- Driller Role -->
+        <section id="driller" class="doc-section">
+            <h1>Driller Role</h1>
+            <p class="role-description">Drilling Machine Operator</p>
+
+            <h2>Who is a Driller?</h2>
+            <p>Drillers are drilling machine operators and drilling crew members who perform drilling operations.</p>
+
+            <h2>Responsibilities</h2>
+            <ul class="responsibility-list">
+                <li>✓ Record drilling data for each hole</li>
+                <li>✓ Enter hole ID, depth, and elevation</li>
+                <li>✓ Record start and end times</li>
+                <li>✓ Take photos of soil samples</li>
+                <li>✓ Upload SAA test results</li>
+                <li>✓ Note soil types and conditions</li>
+            </ul>
+
+            <h2>What Driller Replaces</h2>
+            <p>The Driller role replaces drilling logbooks, soil sample tags, and photo albums.</p>
+        </section>
+
+        <!-- Grouter Role -->
+        <section id="grouter" class="doc-section">
+            <h1>Grouter Role</h1>
+            <p class="role-description">Grouting Machine Operator</p>
+
+            <h2>Who is a Grouter?</h2>
+            <p>Grouters are grouting machine operators and grouting crew members who perform jet grouting operations.
+            </p>
+
+            <h2>Responsibilities</h2>
+            <ul class="responsibility-list">
+                <li>✓ Record grouting data for each column</li>
+                <li>✓ Enter pressure, flow rate, and volume</li>
+                <li>✓ Record grouting depths and times</li>
+                <li>✓ Take photos of pressure gauges</li>
+                <li>✓ Track production (daily and cumulative)</li>
+                <li>✓ Record equipment, materials, and workers</li>
+            </ul>
+
+            <h2>What Grouter Replaces</h2>
+            <p>The Grouter role replaces grouting logbooks, pressure charts, and production sheets.</p>
+        </section>
+
+        <!-- Creating Projects -->
+        <section id="create-project" class="doc-section">
+            <h1>Creating Projects</h1>
+            <p>This section explains how administrators can create new projects in the system.</p>
+
+            <h2>Steps to Create a Project</h2>
+            <ol class="step-list">
+                <li>Click <strong>"Projects"</strong> in the left sidebar menu</li>
+                <li>Click the <strong>"Create New Project"</strong> button (usually at top-right)</li>
+                <li>Fill in the project details in the form</li>
+                <li>Click <strong>"Create Project"</strong> button to save</li>
+            </ol>
+
+            <h2>Required Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Project Name</strong></td>
+                            <td>The official name of the project</td>
+                            <td>"Metro Station Foundation"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Location</strong></td>
+                            <td>Physical location of the project</td>
+                            <td>"Downtown, City Center"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Client Name</strong></td>
+                            <td>Name of the client organization</td>
+                            <td>"Metro Rail Corporation"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="success-box">
+                <h3>✓ What Happens Next</h3>
+                <p>Once created, the project will appear in the projects list. Team members can now select this project
+                    when creating daily reports and entering data.</p>
+            </div>
+        </section>
+
+        <!-- Managing Users -->
+        <section id="manage-users" class="doc-section">
+            <h1>Managing Users</h1>
+            <p>This section explains how to create and manage user accounts in the system.</p>
+
+            <h2>Steps to Create a User</h2>
+            <ol class="step-list">
+                <li>Click <strong>"Users"</strong> in the left sidebar menu</li>
+                <li>Click the <strong>"Create New User"</strong> button</li>
+                <li>Fill in the user information form</li>
+                <li>Select the appropriate role from the dropdown</li>
+                <li>Click <strong>"Create User"</strong> button</li>
+                <li>Provide the credentials to the new team member</li>
+            </ol>
+
+            <h2>User Information Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Name</strong></td>
+                            <td>Full name of the user</td>
+                            <td>"John Smith"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                            <td>Work email address (used for login)</td>
+                            <td>"john.smith@company.com"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Password</strong></td>
+                            <td>Temporary password for first login</td>
+                            <td>"Welcome123"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Role</strong></td>
+                            <td>User's role in the system</td>
+                            <td>Admin / Supervisor / Driller / Grouter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Important</h3>
+                <ul>
+                    <li>Choose the correct role - this determines what the user can access and do</li>
+                    <li>Tell users to change their password after first login</li>
+                    <li>Keep a record of user credentials securely</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Daily Reports -->
+        <section id="daily-report" class="doc-section">
+            <h1>Creating Daily Reports</h1>
+            <p>Daily reports are the foundation of the data collection system. Supervisors must create a daily report
+                before field workers can enter data.</p>
+
+            <h2>Steps to Create a Daily Report</h2>
+            <ol class="step-list">
+                <li>Click <strong>"Create Daily Report"</strong> button on your dashboard</li>
+                <li>Select the project from the dropdown menu</li>
+                <li>Choose the date (usually today's date)</li>
+                <li>Enter weather conditions</li>
+                <li>Add general remarks or notes</li>
+                <li>Click <strong>"Create Report"</strong> button</li>
+            </ol>
+
+            <h2>Daily Report Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Project</strong></td>
+                            <td>Select the active project</td>
+                            <td>Select from dropdown</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date</strong></td>
+                            <td>Date of the report</td>
+                            <td>2025-11-25</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weather</strong></td>
+                            <td>Current weather conditions</td>
+                            <td>"Sunny, 25°C" or "Rainy, 18°C"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remarks</strong></td>
+                            <td>General notes about the day</td>
+                            <td>"Normal operations, no delays"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="success-box">
+                <h3>✓ What Happens Next</h3>
+                <p>Once the daily report is created, Drillers and Grouters can begin entering their field data. All data
+                    entered by field workers will be linked to this daily report.</p>
+            </div>
+        </section>
+
+        <!-- Equipment Tracking -->
+        <section id="equipment" class="doc-section">
+            <h1>Equipment Tracking</h1>
+            <p>Track daily and cumulative equipment usage hours.</p>
+
+            <h2>Steps to Record Equipment Usage</h2>
+            <ol class="step-list">
+                <li>Open your daily report</li>
+                <li>Scroll to the <strong>"Equipment Report"</strong> section</li>
+                <li>Click <strong>"+ Add Row"</strong> button</li>
+                <li>Fill in equipment details</li>
+                <li>Click <strong>"+ Add Row"</strong> for additional equipment</li>
+                <li>Click <strong>"Save"</strong> when finished</li>
+            </ol>
+
+            <h2>Equipment Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Equipment Name</strong></td>
+                            <td>Name or ID of the equipment</td>
+                            <td>"Drilling Rig #1"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Daily Hours</strong></td>
+                            <td>Hours worked today</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accumulative Hours</strong></td>
+                            <td>Total hours since project start</td>
+                            <td>245</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Material Management -->
+        <section id="materials" class="doc-section">
+            <h1>Material Management</h1>
+            <p>Record materials consumed during daily operations.</p>
+
+            <h2>Steps to Record Materials</h2>
+            <ol class="step-list">
+                <li>Open your daily report</li>
+                <li>Scroll to the <strong>"Material Report"</strong> section</li>
+                <li>Click <strong>"+ Add Row"</strong> button</li>
+                <li>Fill in material details</li>
+                <li>Click <strong>"+ Add Row"</strong> for additional materials</li>
+                <li>Click <strong>"Save"</strong> when finished</li>
+            </ol>
+
+            <h2>Material Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Material Type</strong></td>
+                            <td>Name of the material</td>
+                            <td>"Cement"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quantity</strong></td>
+                            <td>Amount used</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unit</strong></td>
+                            <td>Unit of measurement</td>
+                            <td>"bags", "kg", "liters"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remarks</strong></td>
+                            <td>Additional notes</td>
+                            <td>"Type I Portland Cement"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Manpower Logging -->
+        <section id="manpower" class="doc-section">
+            <h1>Manpower Logging</h1>
+            <p>Record the number of workers present and their categories.</p>
+
+            <h2>Steps to Record Manpower</h2>
+            <ol class="step-list">
+                <li>Open your daily report</li>
+                <li>Scroll to the <strong>"Manpower Report"</strong> section</li>
+                <li>Click <strong>"+ Add Row"</strong> button</li>
+                <li>Fill in worker category and count</li>
+                <li>Click <strong>"+ Add Row"</strong> for additional categories</li>
+                <li>Click <strong>"Save"</strong> when finished</li>
+            </ol>
+
+            <h2>Manpower Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Category</strong></td>
+                            <td>Type of worker</td>
+                            <td>"Drillers", "Helpers", "Engineers"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Worker Count</strong></td>
+                            <td>Number of workers in this category</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remarks</strong></td>
+                            <td>Additional notes</td>
+                            <td>"Day shift"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Drilling Logs -->
+        <section id="drilling-logs" class="doc-section">
+            <h1>Drilling Logs</h1>
+            <p>Record detailed drilling data for each borehole.</p>
+
+            <h2>Steps to Record Drilling Data</h2>
+            <ol class="step-list">
+                <li>From your dashboard, find today's project</li>
+                <li>Click to expand the project</li>
+                <li>The drilling log form will appear</li>
+                <li>Fill in all drilling information</li>
+                <li>Take soil sample photos</li>
+                <li>Click <strong>"Save Drilling Data"</strong> button</li>
+            </ol>
+
+            <h2>Drilling Data Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hole ID</strong></td>
+                            <td>Unique identifier for the borehole</td>
+                            <td>"BH-01", "DH-15"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start Depth</strong></td>
+                            <td>Starting depth in meters</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Finish Depth</strong></td>
+                            <td>Final depth in meters</td>
+                            <td>15.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start EL</strong></td>
+                            <td>Starting elevation in meters</td>
+                            <td>100.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Finish EL</strong></td>
+                            <td>Finish elevation in meters</td>
+                            <td>84.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start Time</strong></td>
+                            <td>Time drilling started</td>
+                            <td>08:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>End Time</strong></td>
+                            <td>Time drilling finished</td>
+                            <td>10:30</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soil Layer</strong></td>
+                            <td>Type of soil encountered</td>
+                            <td>Clay, Sand, Gravel, Rock</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remarks</strong></td>
+                            <td>Additional observations</td>
+                            <td>"Hard rock at 12m depth"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Important</h3>
+                <p>Always click <strong>"Save Drilling Data"</strong> before closing the page. Unsaved data will be
+                    lost!</p>
+            </div>
+        </section>
+
+        <!-- Soil Photography -->
+        <section id="soil-photos" class="doc-section">
+            <h1>Soil Photography</h1>
+            <p>Capture and attach photos of soil samples directly to drilling logs.</p>
+
+            <h2>Method 1: Using Device Camera (Recommended)</h2>
+            <ol class="step-list">
+                <li>Find the <strong>"Soil Photo"</strong> column in your drilling form</li>
+                <li>Click the <strong>"📷 Camera"</strong> button</li>
+                <li>Allow camera access when prompted</li>
+                <li>Point camera at soil sample</li>
+                <li>Click <strong>"📸 Capture"</strong> button</li>
+                <li>Preview will appear - photo is automatically attached</li>
+            </ol>
+
+            <h2>Method 2: Uploading from Device</h2>
+            <ol class="step-list">
+                <li>Click <strong>"Upload"</strong> button</li>
+                <li>Select photo from your device</li>
+                <li>Photo will appear as preview</li>
+            </ol>
+
+            <h2>Tips for Good Photos</h2>
+            <ul class="tip-list">
+                <li>💡 Take photos in good lighting (not too dark)</li>
+                <li>💡 Make sure soil sample is in focus</li>
+                <li>💡 Include a reference (ruler or coin) for scale</li>
+                <li>💡 Take photo from directly above the sample</li>
+                <li>💡 Avoid shadows covering the sample</li>
+            </ul>
+        </section>
+
+        <!-- SAA Tests -->
+        <section id="saa-tests" class="doc-section">
+            <h1>SAA Test Results</h1>
+            <p>Upload Standard Penetration Test (SAA) results for each borehole.</p>
+
+            <h2>Steps to Upload SAA Results</h2>
+            <ol class="step-list">
+                <li>In the drilling log form, find the <strong>"SAA Test"</strong> field</li>
+                <li>Click <strong>"Upload File"</strong> button</li>
+                <li>Select the SAA test result file from your device</li>
+                <li>File will be attached to the drilling log</li>
+                <li>Save the drilling data</li>
+            </ol>
+
+            <div class="info-box">
+                <h3>Supported File Types</h3>
+                <p>You can upload PDF, image files (JPG, PNG), or Excel files containing SAA test results.</p>
+            </div>
+        </section>
+
+        <!-- Production Reports -->
+        <section id="production" class="doc-section">
+            <h1>Production Reports</h1>
+            <p>Track daily and cumulative production volumes.</p>
+
+            <h2>Steps to Record Production</h2>
+            <ol class="step-list">
+                <li>Select your project from the dropdown</li>
+                <li>Find the <strong>"Production Report"</strong> section</li>
+                <li>Enter daily production volume</li>
+                <li>Enter cumulative production volume</li>
+                <li>Save all data at the end</li>
+            </ol>
+
+            <h2>Production Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Daily Production</strong></td>
+                            <td>Cubic meters grouted today</td>
+                            <td>45.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accumulative Production</strong></td>
+                            <td>Total cubic meters grouted so far</td>
+                            <td>1250.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Grouting Data -->
+        <section id="grouting-data" class="doc-section">
+            <h1>Grouting Data</h1>
+            <p>Record detailed jet grouting parameters for each column.</p>
+
+            <h2>Steps to Record Grouting Data</h2>
+            <ol class="step-list">
+                <li>Scroll to <strong>"Jet Grouting Table"</strong> section</li>
+                <li>Click <strong>"+ Add Row"</strong> button</li>
+                <li>Fill in all grouting parameters</li>
+                <li>Take pressure gauge photo</li>
+                <li>Add more rows for additional columns</li>
+                <li>Click <strong>"Save All Data"</strong> when finished</li>
+            </ol>
+
+            <h2>Grouting Data Fields</h2>
+            <div class="field-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hole ID</strong></td>
+                            <td>Borehole identifier</td>
+                            <td>"BH-01"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Column No.</strong></td>
+                            <td>Column identifier</td>
+                            <td>"C-01"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diameter</strong></td>
+                            <td>Column diameter in mm</td>
+                            <td>800</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Machine No.</strong></td>
+                            <td>Grouting machine ID</td>
+                            <td>"JG-1"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drilling Length</strong></td>
+                            <td>Length in meters</td>
+                            <td>15.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Angle</strong></td>
+                            <td>Drilling angle in degrees</td>
+                            <td>90 (vertical), 45 (angled)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Grouting Level From</strong></td>
+                            <td>Starting level in meters</td>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Grouting Level To</strong></td>
+                            <td>Ending level in meters</td>
+                            <td>15.5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Start Time</strong></td>
+                            <td>Grouting start time</td>
+                            <td>08:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>End Time</strong></td>
+                            <td>Grouting end time</td>
+                            <td>10:30</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pressure</strong></td>
+                            <td>Grouting pressure in bar</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flow Rate</strong></td>
+                            <td>Flow rate in liters/minute</td>
+                            <td>120</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Volume</strong></td>
+                            <td>Total volume in cubic meters</td>
+                            <td>18.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Pressure Photos -->
+        <section id="pressure-photos" class="doc-section">
+            <h1>Pressure Gauge Photos</h1>
+            <p>Capture photos of pressure gauges for quality control documentation.</p>
+
+            <h2>Steps to Take Pressure Photos</h2>
+            <ol class="step-list">
+                <li>Find the <strong>"Pressure Photo"</strong> column in grouting table</li>
+                <li>Click <strong>"📷 Camera"</strong> button</li>
+                <li>Allow camera access if prompted</li>
+                <li>Point camera at pressure gauge</li>
+                <li>Ensure gauge reading is clear and readable</li>
+                <li>Click <strong>"📸 Capture"</strong> button</li>
+                <li>Check preview - retake if blurry</li>
+            </ol>
+
+            <h2>Tips for Pressure Gauge Photos</h2>
+            <ul class="tip-list">
+                <li>💡 Take photo when pressure is stable</li>
+                <li>💡 Make sure numbers are clearly visible</li>
+                <li>💡 Avoid glare from sunlight on the gauge</li>
+                <li>💡 Take photo straight-on, not at an angle</li>
+                <li>💡 Include the entire gauge in the photo</li>
+            </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="doc-section">
+            <h1>Frequently Asked Questions</h1>
+
+            <div class="faq-item">
+                <h3>Q: I forgot my password. What do I do?</h3>
+                <p><strong>A:</strong> Contact your administrator. They can reset your password for you. DO NOT create a
+                    new account as you will lose access to your old data.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Q: The camera button doesn't work on my phone. Why?</h3>
+                <p><strong>A:</strong> Your browser needs permission to use the camera.</p>
+                <p><strong>On Android:</strong></p>
+                <ol>
+                    <li>Go to browser Settings</li>
+                    <li>Find "Site Settings" or "Permissions"</li>
+                    <li>Find the JetGrout website</li>
+                    <li>Allow "Camera" permission</li>
+                </ol>
+                <p><strong>On iPhone:</strong></p>
+                <ol>
+                    <li>Go to iPhone Settings</li>
+                    <li>Scroll to your browser (Chrome/Safari)</li>
+                    <li>Turn ON "Camera" permission</li>
+                </ol>
+                <p><strong>Alternative:</strong> Use the "Upload" button and select photos from your gallery.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Q: I entered wrong data and already saved. Can I fix it?</h3>
+                <p><strong>A:</strong> YES! You can edit your data.</p>
+                <p><strong>For Drillers:</strong></p>
+                <ol>
+                    <li>Click "View My Logs"</li>
+                    <li>Find the wrong entry</li>
+                    <li>Click "Edit"</li>
+                    <li>Fix the mistake</li>
+                    <li>Click "Update"</li>
+                </ol>
+                <p><strong>For Grouters:</strong></p>
+                <ol>
+                    <li>Click "View My Submissions"</li>
+                    <li>Find the wrong entry</li>
+                    <li>Click "Edit"</li>
+                    <li>Fix the mistake</li>
+                    <li>Click "Update All Data"</li>
+                </ol>
+            </div>
+
+            <div class="faq-item">
+                <h3>Q: Can I use this on my phone?</h3>
+                <p><strong>A:</strong> YES! JetGrout works on:</p>
+                <ul>
+                    <li>✓ Desktop computers</li>
+                    <li>✓ Laptops</li>
+                    <li>✓ Tablets (iPad, Android tablets)</li>
+                    <li>✓ Smartphones (iPhone, Android phones)</li>
+                </ul>
+                <p>Just open your web browser and navigate to the JetGrout URL.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Q: What if there's no internet at the site?</h3>
+                <p><strong>A:</strong> You need internet to use JetGrout. Options:</p>
+                <ol>
+                    <li>Use mobile data (4G/5G) on your phone</li>
+                    <li>Set up WiFi at the site office</li>
+                    <li>Record data on paper temporarily, then enter it when you have internet</li>
+                </ol>
+                <p><em>Note: Future updates may include offline mode functionality.</em></p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Q: I can't see the data my colleague entered. Why?</h3>
+                <p><strong>A:</strong> Check these things:</p>
+                <ol>
+                    <li>Are you looking at the correct project?</li>
+                    <li>Are you looking at the correct date?</li>
+                    <li>Did your colleague actually SAVE their data?</li>
+                    <li>Try refreshing the page (press F5)</li>
+                </ol>
+                <p>If still not visible, ask your admin to check permissions.</p>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="doc-section">
+            <h1>Troubleshooting</h1>
+
+            <h2>Common Issues and Solutions</h2>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: Cannot login to the system</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check that you're entering the correct email and password</li>
+                    <li>Ensure Caps Lock is not turned on</li>
+                    <li>Clear your browser cache and cookies</li>
+                    <li>Try a different browser</li>
+                    <li>Contact your admin for password reset</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: Data not saving</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check your internet connection</li>
+                    <li>Ensure all required fields are filled</li>
+                    <li>Look for error messages on the page</li>
+                    <li>Try refreshing the page and re-entering data</li>
+                    <li>Contact support if issue persists</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: Photos not uploading</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check that photo file size is not too large (max 5MB)</li>
+                    <li>Ensure photo is in supported format (JPG, PNG)</li>
+                    <li>Check your internet connection speed</li>
+                    <li>Try compressing the image before upload</li>
+                    <li>Use camera capture instead of upload</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h3>🔴 Issue: Page loading slowly</h3>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check your internet connection speed</li>
+                    <li>Close unnecessary browser tabs</li>
+                    <li>Clear browser cache</li>
+                    <li>Try using a different browser</li>
+                    <li>Restart your device</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Support -->
+        <section id="contact" class="doc-section">
+            <h1>Need Assistance?</h1>
+
+            <div class="contact-box">
+                <h2>📞 Contact Support</h2>
+                <p>If you're experiencing issues or need help with the JetGrout system, please contact your system
+                    administrator or IT support team.</p>
+
+                <h3>Before Contacting Support</h3>
+                <ul>
+                    <li>✓ Check this documentation for answers</li>
+                    <li>✓ Review the FAQ section</li>
+                    <li>✓ Try the troubleshooting steps</li>
+                    <li>✓ Ask your supervisor or colleagues</li>
+                </ul>
+
+                <h3>When Contacting Support, Provide:</h3>
+                <ul>
+                    <li>Your name and role</li>
+                    <li>Description of the issue</li>
+                    <li>Steps you've already tried</li>
+                    <li>Screenshots if applicable</li>
+                    <li>Browser and device information</li>
+                </ul>
+            </div>
+
+            <div class="encouragement-box">
+                <h2>😊 Remember</h2>
+                <p>Everyone was new to this system once! It gets easier with practice. After a few days, you'll find it
+                    MUCH EASIER than paper forms!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
