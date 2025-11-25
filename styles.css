@@ -1,0 +1,529 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: #1a1a2e;
+    color: #fff;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 2rem 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+    padding: 0 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.sidebar-header p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar-nav {
+    padding: 1.5rem 0;
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+}
+
+.nav-section h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.625rem 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-left-color: #4a90e2;
+}
+
+.nav-link.active {
+    background: rgba(74, 144, 226, 0.1);
+    color: #4a90e2;
+    border-left-color: #4a90e2;
+    font-weight: 500;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 280px;
+    flex: 1;
+    padding: 3rem;
+    max-width: 1200px;
+}
+
+.doc-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.doc-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+}
+
+.doc-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.doc-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.role-description {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+/* Info Boxes */
+.info-box,
+.warning-box,
+.success-box,
+.contact-box,
+.encouragement-box {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid;
+}
+
+.info-box {
+    background: #e3f2fd;
+    border-left-color: #2196f3;
+}
+
+.info-box h3 {
+    color: #1976d2;
+    margin-top: 0;
+}
+
+.warning-box {
+    background: #fff3e0;
+    border-left-color: #ff9800;
+}
+
+.warning-box h3 {
+    color: #f57c00;
+    margin-top: 0;
+}
+
+.success-box {
+    background: #e8f5e9;
+    border-left-color: #4caf50;
+}
+
+.success-box h3 {
+    color: #388e3c;
+    margin-top: 0;
+}
+
+.contact-box {
+    background: #f3e5f5;
+    border-left-color: #9c27b0;
+}
+
+.contact-box h2 {
+    color: #7b1fa2;
+    margin-top: 0;
+    border: none;
+}
+
+.encouragement-box {
+    background: #fff9c4;
+    border-left-color: #fbc02d;
+    text-align: center;
+}
+
+.encouragement-box h2 {
+    color: #f57f17;
+    margin-top: 0;
+    border: none;
+}
+
+/* Lists */
+.feature-list,
+.responsibility-list,
+.step-list,
+.tip-list {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.feature-list li,
+.responsibility-list li {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.step-list {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.step-list li {
+    counter-increment: step-counter;
+    margin-bottom: 1.25rem;
+    padding-left: 3rem;
+    position: relative;
+    line-height: 1.7;
+}
+
+.step-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: #4a90e2;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.tip-list li {
+    margin-bottom: 0.75rem;
+}
+
+.sub-steps {
+    list-style: disc;
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+}
+
+.sub-steps li {
+    margin-bottom: 0.5rem;
+}
+
+/* Code Blocks */
+code {
+    background: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #e83e8c;
+}
+
+pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: #f8f8f2;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Workflow Diagram */
+.workflow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.workflow-step {
+    flex: 1;
+    min-width: 150px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.step-number {
+    width: 3rem;
+    height: 3rem;
+    background: #4a90e2;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+}
+
+.workflow-step h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #2c3e50;
+}
+
+.workflow-step p {
+    font-size: 0.875rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.workflow-arrow {
+    font-size: 2rem;
+    color: #4a90e2;
+    font-weight: 700;
+}
+
+/* Tables */
+.field-table {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.field-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.field-table thead {
+    background: #4a90e2;
+    color: #fff;
+}
+
+.field-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.field-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.field-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.field-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* FAQ Items */
+.faq-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #4a90e2;
+}
+
+.faq-item h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    margin-bottom: 0.75rem;
+}
+
+.faq-item ol,
+.faq-item ul {
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+}
+
+.faq-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* Troubleshooting Items */
+.troubleshoot-item {
+    background: #fff;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.troubleshoot-item h3 {
+    color: #e74c3c;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.troubleshoot-item ul {
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+}
+
+.troubleshoot-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .sidebar {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 250px;
+        padding: 2rem;
+    }
+
+    .doc-section {
+        padding: 2rem;
+    }
+
+    .workflow-diagram {
+        flex-direction: column;
+    }
+
+    .workflow-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        max-height: 400px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+
+    .doc-section {
+        padding: 1.5rem;
+    }
+
+    .doc-section h1 {
+        font-size: 2rem;
+    }
+
+    .doc-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .field-table {
+        font-size: 0.875rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .doc-section {
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+}
